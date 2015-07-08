@@ -12,20 +12,20 @@ public class EchoServer {
 
 		try (
 			ServerSocket serverSocket =
-			new ServerSocket(Integer.parseInt(args[0]));
+				new ServerSocket(Integer.parseInt(args[0]));
 			Socket clientSocket = serverSocket.accept();     
 			PrintWriter out =
-			new PrintWriter(clientSocket.getOutputStream(), true);                   
+				new PrintWriter(clientSocket.getOutputStream(), true);                   
 			BufferedReader in = new BufferedReader(
-			new InputStreamReader(clientSocket.getInputStream()));
+				new InputStreamReader(clientSocket.getInputStream()));
 		) {
 			String inputLine;
 			while ((inputLine = in.readLine()) != null) {
-			out.println(inputLine);
-		}
+				out.println(inputLine);
+			}
 		} catch (IOException e) {
 			System.out.println("Exception caught when trying to listen on port "
-			+ portNumber + " or listening for a connection");
+				+ portNumber + " or listening for a connection");
 			System.out.println(e.getMessage());
 		}
 	}
